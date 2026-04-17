@@ -102,7 +102,7 @@
     
 }
 
-.diario-baelfast h1.diary-title {
+.diario-baelfast .diary-title {
 
       font-family: 'Pinyon Script', cursive !important; font-size: 4.2rem !important; color: var(--ink) !important; line-height: 1 !important;
       text-shadow: 1px 2px 4px rgba(40,15,0,0.15) !important;
@@ -137,7 +137,7 @@
     
 }
 
-.diario-baelfast h2.page-header-title {
+.diario-baelfast .page-header-title {
  font-family: 'Pinyon Script', cursive !important; font-size: 1.8rem !important; color: var(--ink-faded) !important; border-bottom: none !important; 
 }
 
