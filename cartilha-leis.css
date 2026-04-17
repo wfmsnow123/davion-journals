@@ -1,0 +1,707 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;500;600;700&display=swap');
+
+/* ═══════════════════════════════════
+   CARTILHA DAS LEIS — CADERNINHO DE BOLSO
+   Caneta tinteiro azul · papel branco gasto
+   Arame espiral · rasuras e corretivo
+═══════════════════════════════════ */
+.cartilha-leis {
+  --paper:       #f7f5f0;
+  --paper-edge:  #e8e4db;
+  --paper-worn:  #edeae3;
+  --ink:         #1a3a5c;
+  --ink-light:   #3a6a9a;
+  --ink-faded:   #6a8aaa;
+  --ink-accent:  #2a4a6c;
+  --ink-margin:  #8aabcc;
+  --crease:      rgba(0,0,0,0.04);
+  --stain:       rgba(120,100,60,0.06);
+  --body-bg:     #2a2825;
+}
+
+.cartilha-leis *,
+.cartilha-leis *::before,
+.cartilha-leis *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ═══════════════════════════════════
+   WRAPPER EXTERNO
+═══════════════════════════════════ */
+.cartilha-leis {
+  background: var(--body-bg);
+  background-image:
+    radial-gradient(ellipse at 50% 30%, #3a3530 0%, var(--body-bg) 70%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 10px;
+  gap: 8px;
+}
+
+/* ═══════════════════════════════════
+   PÁGINAS — CADERNETA POCKET
+═══════════════════════════════════ */
+.cartilha-leis .cl-page {
+  width: 420px;
+  max-width: 95%;
+  padding: 48px 32px 28px 38px;
+  position: relative;
+  z-index: 1;
+
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      0deg, transparent, transparent 23px,
+      rgba(140, 160, 190, 0.12) 23px, rgba(140, 160, 190, 0.12) 24px
+    ),
+    radial-gradient(ellipse at 30% 20%, rgba(200,190,160,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(180,170,140,0.06) 0%, transparent 50%);
+
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.cartilha-leis .cl-page + .cl-page {
+  border-top: none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.cartilha-leis .cl-page:first-child {
+  border-radius: 10px 10px 0 0;
+  box-shadow:
+    0 -2px 8px rgba(0,0,0,0.15),
+    0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cartilha-leis .cl-page:last-child {
+  border-radius: 0 0 8px 8px;
+  box-shadow:
+    0 4px 16px rgba(0,0,0,0.25),
+    0 2px 6px rgba(0,0,0,0.1);
+}
+
+.cartilha-leis .cl-page:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+/* ═══════════════════════════════════
+   FUROS DO ARAME ESPIRAL
+═══════════════════════════════════ */
+.cartilha-leis .cl-wire-holes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 18px;
+  z-index: 20;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 50% -1px, rgba(0,0,0,0.12) 5px, transparent 6px),
+    radial-gradient(circle at 50% -2px, var(--body-bg) 4.5px, transparent 5px);
+  background-size: 26px 18px, 26px 18px;
+  background-position: 13px 0, 13px 0;
+  background-repeat: repeat-x;
+}
+
+.cartilha-leis .cl-page:first-child .cl-wire-holes {
+  border-radius: 10px 10px 0 0;
+}
+
+.cartilha-leis .cl-wire-holes::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  right: 10px;
+  height: 1px;
+  background: linear-gradient(to right,
+    transparent,
+    rgba(80, 80, 80, 0.2) 10%,
+    rgba(80, 80, 80, 0.25) 50%,
+    rgba(80, 80, 80, 0.2) 90%,
+    transparent
+  );
+  z-index: 21;
+}
+
+/* ═══════════════════════════════════
+   MARCAS DE USO — AMASSADOS E DESGASTE
+═══════════════════════════════════ */
+.cartilha-leis .cl-worn-corner-tr::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 28px; height: 28px;
+  background: linear-gradient(225deg, var(--paper-edge) 48%, transparent 52%);
+  border-bottom-left-radius: 4px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.cartilha-leis .cl-worn-corner-tl::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 22px; height: 22px;
+  background: linear-gradient(135deg, var(--paper-edge) 48%, transparent 52%);
+  border-bottom-right-radius: 3px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.cartilha-leis .cl-crease-h::after {
+  content: '';
+  position: absolute;
+  left: 5%; right: 5%;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(to right,
+    transparent 0%, var(--crease) 15%, rgba(0,0,0,0.06) 45%,
+    rgba(0,0,0,0.07) 55%, var(--crease) 85%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cartilha-leis .cl-crease-diag::after {
+  content: '';
+  position: absolute;
+  top: 20%; left: 60%;
+  width: 120px; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.04), transparent);
+  transform: rotate(-25deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cartilha-leis .cl-thumb-mark::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, var(--stain) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+.cartilha-leis .cl-thumb-mark-br::before {
+  bottom: 25px; right: 20px;
+  width: 40px; height: 50px;
+  transform: rotate(-15deg);
+}
+.cartilha-leis .cl-thumb-mark-bl::before {
+  bottom: 30px; left: 15px;
+  width: 35px; height: 45px;
+  transform: rotate(10deg);
+}
+.cartilha-leis .cl-thumb-mark-tr::before {
+  top: 40px; right: 25px;
+  width: 30px; height: 40px;
+  transform: rotate(-8deg);
+}
+
+.cartilha-leis .cl-edge-worn {
+  background-image:
+    repeating-linear-gradient(
+      0deg, transparent, transparent 23px,
+      rgba(140, 160, 190, 0.12) 23px, rgba(140, 160, 190, 0.12) 24px
+    ),
+    linear-gradient(to right, rgba(200,190,160,0.1) 0%, transparent 8%, transparent 92%, rgba(200,190,160,0.08) 100%),
+    linear-gradient(to bottom, transparent 0%, transparent 95%, rgba(200,190,160,0.1) 100%) !important;
+}
+
+/* ═══════════════════════════════════
+   RASURAS E CORRETIVO
+═══════════════════════════════════ */
+.cartilha-leis .cl-rasura {
+  text-decoration: line-through;
+  text-decoration-color: var(--ink-light);
+  text-decoration-thickness: 1.5px;
+  color: var(--ink-faded);
+  opacity: 0.55;
+  font-size: 0.95em;
+  position: relative;
+  margin-right: 2px;
+}
+
+.cartilha-leis .cl-rasura-forte {
+  text-decoration: line-through;
+  text-decoration-color: var(--ink);
+  text-decoration-thickness: 2px;
+  color: var(--ink-faded);
+  opacity: 0.4;
+  font-size: 0.95em;
+  position: relative;
+  margin-right: 2px;
+}
+.cartilha-leis .cl-rasura-forte::after {
+  content: '';
+  position: absolute;
+  left: -1px; right: -1px;
+  top: 55%;
+  height: 1.5px;
+  background: var(--ink);
+  opacity: 0.35;
+  transform: rotate(-1deg);
+}
+
+.cartilha-leis .cl-corretivo {
+  position: relative;
+  z-index: 1;
+  padding: 0 2px;
+}
+.cartilha-leis .cl-corretivo::before {
+  content: '';
+  position: absolute;
+  left: -2px; right: -2px;
+  top: 15%; bottom: 10%;
+  background: #f0ede6;
+  border-radius: 2px;
+  z-index: -1;
+  box-shadow:
+    0 0 0 0.5px rgba(220, 215, 200, 0.8),
+    inset 0 0 2px rgba(200, 195, 180, 0.4);
+  opacity: 0.92;
+}
+
+.cartilha-leis .cl-corretivo-grosso {
+  position: relative;
+  z-index: 1;
+  padding: 0 3px;
+}
+.cartilha-leis .cl-corretivo-grosso::before {
+  content: '';
+  position: absolute;
+  left: -3px; right: -3px;
+  top: 5%; bottom: 5%;
+  background: #eeebe3;
+  border-radius: 3px;
+  z-index: -1;
+  box-shadow:
+    0 0 0 1px rgba(215, 210, 195, 0.7),
+    inset 0 0 3px rgba(200, 195, 175, 0.5),
+    0 0.5px 1px rgba(0,0,0,0.04);
+  opacity: 0.95;
+}
+
+/* ═══════════════════════════════════
+   TIPOGRAFIA — CANETA TINTEIRO AZUL
+═══════════════════════════════════ */
+.cartilha-leis .cl-pocket-title {
+  font-family: 'Caveat', cursive !important;
+  font-size: 1.9rem !important;
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+  text-align: center;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+  border-bottom: none !important;
+}
+
+.cartilha-leis .cl-pocket-subtitle {
+  font-family: 'Caveat', cursive;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--ink-faded);
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 6px;
+}
+
+.cartilha-leis .cl-pocket-author {
+  font-family: 'Caveat', cursive;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  text-align: center;
+  margin-top: 14px;
+  letter-spacing: 0.02em;
+}
+
+.cartilha-leis .cl-pocket-note {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--ink-faded);
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+.cartilha-leis .cl-peacock-drawn {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: var(--ink-light);
+  opacity: 0.6;
+  filter: grayscale(0.5);
+}
+
+.cartilha-leis .cl-pocket-sep {
+  text-align: center;
+  margin: 20px 0 8px;
+  color: var(--ink-faded);
+  font-size: 0.85rem;
+  letter-spacing: 0.5em;
+  opacity: 0.4;
+}
+
+.cartilha-leis .cl-pocket-pagenum {
+  text-align: center;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--ink-faded);
+  margin-top: 20px;
+  opacity: 0.5;
+}
+
+.cartilha-leis .cl-pocket-chapter {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  color: var(--ink-faded) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(26, 58, 92, 0.12) !important;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════
+   ENTRADAS DE TEXTO
+═══════════════════════════════════ */
+.cartilha-leis .cl-entry {
+  margin-top: 18px;
+  position: relative;
+}
+.cartilha-leis .cl-entry + .cl-entry {
+  padding-top: 14px;
+  border-top: 1px dashed rgba(26, 58, 92, 0.08);
+}
+
+.cartilha-leis h3.cl-entry-title {
+  font-family: 'Caveat', cursive !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  margin-bottom: 6px !important;
+  line-height: 1.3 !important;
+  border-bottom: none !important;
+}
+
+.cartilha-leis .cl-entry p {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.92rem;
+  color: var(--ink-accent);
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 0.7em;
+  hyphens: auto;
+}
+.cartilha-leis .cl-entry p:last-child { margin-bottom: 0; }
+.cartilha-leis .cl-entry em { font-style: italic; color: var(--ink); }
+.cartilha-leis .cl-entry strong { font-weight: 600; color: var(--ink); }
+
+.cartilha-leis .cl-intro {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+/* ═══════════════════════════════════
+   NOTAS MARGINAIS
+═══════════════════════════════════ */
+.cartilha-leis .cl-margin-note {
+  font-family: 'Caveat', cursive;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink-margin);
+  line-height: 1.3;
+  padding: 4px 0;
+  margin: 8px 0;
+  border-left: 2px solid rgba(26, 58, 92, 0.15);
+  padding-left: 10px;
+}
+.cartilha-leis .cl-margin-note .cl-note-star {
+  color: var(--ink-light);
+  font-size: 0.9rem;
+}
+
+/* ═══════════════════════════════════
+   LEMAS
+═══════════════════════════════════ */
+.cartilha-leis .cl-lema {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  border: 1px solid rgba(26, 58, 92, 0.1);
+  border-radius: 3px;
+  background: rgba(26, 58, 92, 0.02);
+}
+.cartilha-leis .cl-lema-num {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink-light);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 22px;
+  text-align: center;
+}
+.cartilha-leis .cl-lema-body {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  color: var(--ink-accent);
+  line-height: 1.6;
+}
+.cartilha-leis .cl-lema-detail {
+  font-size: 0.82rem;
+  color: var(--ink-faded);
+  font-style: italic;
+  display: block;
+  margin-top: 3px;
+}
+
+/* ═══════════════════════════════════
+   CASTAS
+═══════════════════════════════════ */
+.cartilha-leis .cl-casta {
+  padding: 8px 10px;
+  margin: 8px 0;
+  border-left: 3px solid;
+  background: rgba(26, 58, 92, 0.015);
+}
+.cartilha-leis .cl-casta-civil    { border-color: #3a7a5a; }
+.cartilha-leis .cl-casta-exec     { border-color: #5a4a8a; }
+.cartilha-leis .cl-casta-penal    { border-color: #8a3a3a; }
+
+.cartilha-leis .cl-casta-name {
+  font-family: 'Caveat', cursive !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  line-height: 1.2;
+  border-bottom: none !important;
+}
+.cartilha-leis .cl-casta-family {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--ink-faded);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.cartilha-leis .cl-casta-desc {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  color: var(--ink-accent);
+  line-height: 1.55;
+}
+.cartilha-leis .cl-casta-aside {
+  font-family: 'Caveat', cursive;
+  font-size: 0.8rem;
+  color: var(--ink-margin);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════
+   CRIMES
+═══════════════════════════════════ */
+.cartilha-leis .cl-crime {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dotted rgba(26, 58, 92, 0.08);
+}
+.cartilha-leis .cl-crime:last-child { border-bottom: none; }
+.cartilha-leis .cl-crime-num {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink-light);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 20px;
+  text-align: center;
+  opacity: 0.7;
+}
+.cartilha-leis .cl-crime-body { flex: 1; }
+.cartilha-leis .cl-crime-title {
+  font-family: 'Caveat', cursive !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  line-height: 1.2;
+  margin-bottom: 3px;
+  border-bottom: none !important;
+}
+.cartilha-leis .cl-crime-desc {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  color: var(--ink-accent);
+  line-height: 1.55;
+}
+.cartilha-leis .cl-crime-note {
+  font-family: 'Caveat', cursive;
+  font-size: 0.8rem;
+  color: var(--ink-margin);
+  margin-top: 4px;
+  padding: 3px 0 3px 8px;
+  border-left: 1.5px solid rgba(26, 58, 92, 0.12);
+}
+
+/* ═══════════════════════════════════
+   PENALIDADES / REGRAS
+═══════════════════════════════════ */
+.cartilha-leis .cl-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.88rem;
+  color: var(--ink-accent);
+  line-height: 1.55;
+}
+.cartilha-leis .cl-list-icon {
+  flex-shrink: 0;
+  min-width: 18px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ink-light);
+}
+
+.cartilha-leis .cl-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 4px 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  color: var(--ink-accent);
+  line-height: 1.5;
+}
+.cartilha-leis .cl-check {
+  flex-shrink: 0;
+  min-width: 16px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.5;
+}
+.cartilha-leis .cl-check-yes { color: #3a7a5a; }
+.cartilha-leis .cl-check-no  { color: #8a3a3a; }
+
+/* ═══════════════════════════════════
+   CAIXAS DE DESTAQUE
+═══════════════════════════════════ */
+.cartilha-leis .cl-highlight {
+  padding: 8px 10px;
+  margin: 10px 0;
+  border: 1px dashed rgba(26, 58, 92, 0.15);
+  border-radius: 2px;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.88rem;
+  color: var(--ink-accent);
+  line-height: 1.6;
+  background: rgba(26, 58, 92, 0.015);
+}
+.cartilha-leis .cl-highlight-personal {
+  border-color: rgba(138, 58, 58, 0.15);
+  background: rgba(138, 58, 58, 0.02);
+}
+
+/* ═══════════════════════════════════
+   PERGUNTAS E RESPOSTAS
+═══════════════════════════════════ */
+.cartilha-leis .cl-qa {
+  margin: 8px 0;
+  padding: 6px 0 6px 10px;
+  border-left: 1.5px solid rgba(26, 58, 92, 0.15);
+}
+.cartilha-leis .cl-q {
+  font-family: 'EB Garamond', serif;
+  font-weight: 600;
+  font-size: 0.87rem;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 3px;
+}
+.cartilha-leis .cl-a {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 0.84rem;
+  color: var(--ink-faded);
+  line-height: 1.55;
+}
+
+/* ═══════════════════════════════════
+   CIDADANIA — REQUISITOS
+═══════════════════════════════════ */
+.cartilha-leis .cl-req {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  padding: 3px 0 3px 18px;
+  position: relative;
+}
+.cartilha-leis .cl-req::before {
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.cartilha-leis .cl-req-ok { color: var(--ink-accent); }
+.cartilha-leis .cl-req-ok::before { content: '✓'; color: #3a7a5a; }
+.cartilha-leis .cl-req-no { color: #8a3a3a; }
+.cartilha-leis .cl-req-no::before { content: '✗'; color: #8a3a3a; }
+
+/* ═══════════════════════════════════
+   ASSINATURA
+═══════════════════════════════════ */
+.cartilha-leis .cl-sign {
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  text-align: right;
+  margin-top: 16px;
+  opacity: 0.8;
+}
+
+.cartilha-leis .cl-final-sign {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(26, 58, 92, 0.1);
+}
+.cartilha-leis .cl-final-sign .cl-peacock-drawn {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+  opacity: 0.35;
+}
+.cartilha-leis .cl-final-stamp {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 0.72rem;
+  color: var(--ink-faded);
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVO
+═══════════════════════════════════ */
+@media (max-width: 480px) {
+  .cartilha-leis .cl-page { padding: 28px 22px 22px 26px; width: 100%; }
+  .cartilha-leis .cl-pocket-title { font-size: 1.6rem !important; }
+}
