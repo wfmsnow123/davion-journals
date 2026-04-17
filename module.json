@@ -1,0 +1,16 @@
+{
+    "id": "davion-journals",
+    "title": "Davion - Journals",
+    "version": "1.0.0",
+    "compatibility": {
+        "minimum": "13"
+    },
+    "styles": [
+        "diario-baelfast.css",
+        "estrada-aqui.css",
+        "amigos-apopka.css",
+        "mansao-baelfast.css"
+    ],
+    "manifest": "https://raw.githubusercontent.com/wfmsnow123/davion-journals/main/module.json",
+    "download": "https://github.com/wfmsnow123/davion-journals/archive/refs/heads/main.zip"
+}

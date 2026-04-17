@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Pinyon+Script&family=Uncial+Antiqua&display=swap');
+
+.diario-baelfast {
+
+      --paper:     #f4ebdb;
+      --paper-dark:#e6d5b8;
+      --ink:       #241508;
+      --ink-mid:   #4a2e10;
+      --ink-faded: #7a5024;
+      --gold:      #b8923c;
+      --page-w:    100%;
+      --page-max:  960px;
+      --pad-x:     80px; 
+    
+}
+
+.diario-baelfast *, .diario-baelfast *::before, .diario-baelfast *::after {
+ box-sizing: border-box; margin: 0; padding: 0; 
+}
+
+.diario-baelfast {
+
+      background: #110e0a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 10px;
+      gap: 30px;
+    
+}
+
+.diario-baelfast .page {
+
+      width: var(--page-w);
+      max-width: var(--page-max);
+      padding: 80px calc(var(--pad-x) + 20px) 80px var(--pad-x);
+      margin: 0 auto;
+      position: relative;
+      
+      overflow: hidden; 
+      z-index: 1;
+
+      background-color: var(--paper);
+      background-image:
+        repeating-linear-gradient(
+          0deg, transparent, transparent 26px,
+          rgba(140,90,30,0.04) 26px, rgba(140,90,30,0.04) 27px
+        ),
+        radial-gradient(ellipse at 20% 10%, rgba(195,145,58,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 90%, rgba(165,115,32,0.06) 0%, transparent 55%),
+        linear-gradient(155deg, var(--paper) 0%, #ecdcb8 45%, #eadebe 75%, var(--paper-dark) 100%);
+      
+      box-shadow: 
+        0 4px 15px rgba(0,0,0,0.5),
+        inset 0 0 40px rgba(130, 80, 20, 0.08);
+    
+}
+
+.diario-baelfast .page.page-odd {
+ border-radius: 4px 12px 12px 4px; 
+}
+
+.diario-baelfast .page.page-odd::before {
+
+      content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 36px;
+      background: linear-gradient(to right, #382006 0%, #7a4614 45%, #5e3610 80%, rgba(94, 54, 16, 0) 100%);
+      border-radius: 3px 0 0 3px; box-shadow: inset -4px 0 12px rgba(0,0,0,0.4), 4px 0 8px rgba(0,0,0,0.15);
+      z-index: 0; pointer-events: none;
+    
+}
+
+.diario-baelfast .page.page-even {
+ border-radius: 12px 4px 4px 12px; 
+}
+
+.diario-baelfast .page.page-even::after {
+
+      content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 36px;
+      background: linear-gradient(to left, #382006 0%, #7a4614 45%, #5e3610 80%, rgba(94, 54, 16, 0) 100%);
+      border-radius: 0 3px 3px 0; box-shadow: inset 4px 0 12px rgba(0,0,0,0.4), -4px 0 8px rgba(0,0,0,0.15);
+      z-index: 0; pointer-events: none;
+    
+}
+
+.diario-baelfast .diary-header {
+
+      position: relative; text-align: center; padding-bottom: 30px; margin-bottom: 30px; z-index: 2;
+    
+}
+
+.diario-baelfast .diary-header::after {
+
+      content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(120,75,20,0.4), transparent);
+    
+}
+
+.diario-baelfast .crest-img {
+
+      display: block; margin: 0 auto 20px; width: 110px; height: 110px; object-fit: contain;
+      filter: sepia(0.6) contrast(1.15) brightness(0.85); opacity: 0.9;
+    
+}
+
+.diario-baelfast .diary-title {
+
+      font-family: 'Pinyon Script', cursive; font-size: 4.2rem; color: var(--ink); line-height: 1;
+      text-shadow: 1px 2px 4px rgba(40,15,0,0.15);
+    
+}
+
+.diario-baelfast .diary-subtitle {
+
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: var(--ink-faded);
+      margin-top: 10px; letter-spacing: 0.18em;
+    
+}
+
+.diario-baelfast .page-header {
+
+      display: flex; justify-content: space-between; align-items: baseline; position: relative;
+      padding-bottom: 12px; margin-bottom: 36px; z-index: 2;
+    
+}
+
+.diario-baelfast .page-header::after {
+
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, rgba(120,75,20,0.3), transparent);
+    
+}
+
+.diario-baelfast .page.page-even .page-header::after {
+
+      background: linear-gradient(to left, rgba(120,75,20,0.3), transparent);
+    
+}
+
+.diario-baelfast .page-header-title {
+ font-family: 'Pinyon Script', cursive; font-size: 1.8rem; color: var(--ink-faded); 
+}
+
+.diario-baelfast .page-num {
+ font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.9rem; color: var(--ink-faded); opacity: 0.7; 
+}
+
+.diario-baelfast .entry {
+
+      position: relative;
+      margin-top: 40px; padding-top: 10px; break-inside: avoid; page-break-inside: avoid;
+      z-index: 2; 
+    
+}
+
+.diario-baelfast .entry + .entry {
+ border-top: 1px dashed rgba(140, 90, 40, 0.2); 
+}
+
+.diario-baelfast .entry::after {
+ content: ''; display: table; clear: both; 
+}
+
+.diario-baelfast .entry-title {
+ font-family: 'Uncial Antiqua', cursive; font-size: 1.25rem; color: var(--ink); margin-bottom: 4px; line-height: 1.3; text-shadow: 0px 1px 1px rgba(255,255,255,0.3); 
+}
+
+.diario-baelfast .entry-date {
+ font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 0.85rem; color: var(--ink-faded); margin-bottom: 16px; letter-spacing: 0.05em; 
+}
+
+.diario-baelfast .entry p {
+ font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--ink-mid); line-height: 1.85; text-align: justify; margin-bottom: 1em; hyphens: auto; 
+}
+
+.diario-baelfast .entry p:last-child {
+ margin-bottom: 0; 
+}
+
+.diario-baelfast .entry em {
+ font-style: italic; color: var(--ink); font-weight: 600; 
+}
+
+.diario-baelfast .portrait-wrap {
+
+      float: right; margin: 5px 0 20px 25px; position: relative; z-index: 5;
+    
+}
+
+.diario-baelfast .portrait-sketch {
+
+      position: relative; width: 145px; filter: drop-shadow(2px 5px 8px rgba(30,15,5,0.35));
+      transform: rotate(2deg); transition: transform 0.3s ease;
+    
+}
+
+.diario-baelfast .portrait-wrap:nth-of-type(even) .portrait-sketch {
+ transform: rotate(-2.5deg); 
+}
+
+.diario-baelfast .portrait-wrap:nth-of-type(3n)  .portrait-sketch {
+ transform: rotate(1.5deg); 
+}
+
+.diario-baelfast .portrait-sketch:hover {
+ transform: scale(1.05) rotate(0deg); z-index: 10; 
+}
+
+.diario-baelfast .portrait-sketch img {
+
+      display: block; width: 145px; height: 185px; object-fit: cover; object-position: top center;
+      clip-path: polygon(
+        3% 2%, 15% 0%, 32% 3%, 48% 0%, 65% 2%, 82% 0%, 95% 3%, 98% 12%, 99% 28%, 97% 45%, 100% 65%, 98% 85%, 
+        96% 98%, 80% 99%, 60% 97%, 40% 100%, 20% 98%, 4% 99%, 0% 82%, 2% 65%, 0% 45%, 3% 25%, 0% 10%
+      );
+      filter: sepia(0.35) contrast(1.1) brightness(0.95) saturate(0.8);
+    
+}
+
+.diario-baelfast .portrait-sketch::after {
+
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 20%, rgba(255,245,225,0.15) 0%, transparent 60%), repeating-linear-gradient(22deg, transparent 0px, transparent 10px, rgba(100,60,20,0.06) 10px, rgba(100,60,20,0.06) 11px);
+      mix-blend-mode: multiply; clip-path: inherit; pointer-events: none;
+    
+}
+
+.diario-baelfast .portrait-label {
+ font-family: 'Pinyon Script', cursive; font-size: 1.05rem; color: var(--ink-mid); text-align: center; margin-top: 8px; letter-spacing: 0.03em; opacity: 0.9; text-shadow: 0 1px 1px rgba(255,255,255,0.4); 
+}
+
+.diario-baelfast .washi, .diario-baelfast .sticker, .diario-baelfast .bjpaper {
+
+      position: absolute; pointer-events: none;
+      z-index: 10; 
+    
+}
+
+.diario-baelfast .washi, .diario-baelfast .bjpaper {
+ mix-blend-mode: multiply; 
+}
+
+.diario-baelfast .washi img {
+ display: block; width: 100%; height: auto; 
+}
+
+.diario-baelfast .bjpaper img {
+ display: block; width: 100%; height: auto; filter: drop-shadow(0px 1px 1px rgba(30,15,5,0.15)); 
+}
+
+.diario-baelfast .sticker {
+ mix-blend-mode: normal; opacity: 0.95; 
+}
+
+.diario-baelfast .sticker img {
+ display: block; width: 100%; height: auto; 
+}
+
+.diario-baelfast .sticker.aged img {
+
+      filter: sepia(0.5) saturate(0.6) contrast(1.1) brightness(0.9);
+      opacity: 0.85;
+    
+}
+
+.diario-baelfast .sticker.creased {
+ transform-style: preserve-3d; 
+}
+
+.diario-baelfast .sticker.creased img {
+
+      filter: sepia(0.25) saturate(0.7) contrast(1.2) brightness(0.95);
+      transform: perspective(100px) rotateY(-5deg) rotateX(3deg) scale(0.98);
+    
+}
+
+.diario-baelfast .section-sep {
+ text-align: center; margin: 45px 0 10px; color: var(--gold); font-size: 1.4rem; opacity: 0.6; letter-spacing: 0.8em; break-inside: avoid; text-shadow: 0 1px 2px rgba(0,0,0,0.1); 
+}
+
+.diario-baelfast .diary-footer {
+ display: flex; justify-content: flex-end; align-items: center; gap: 18px; margin-top: 60px; padding-top: 25px; position: relative; z-index: 2; 
+}
+
+.diario-baelfast .diary-footer::before {
+ content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 1px; background: linear-gradient(to left, rgba(120,75,20,0.3), transparent); 
+}
+
+.diario-baelfast .seal-text {
+ font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.85rem; color: var(--ink-faded); text-align: right; line-height: 1.5; 
+}
+
+.diario-baelfast .wax-seal {
+ position: relative; width: 80px; height: 80px; flex-shrink: 0; z-index: 10; 
+}
+
+.diario-baelfast .wax-seal img.seal-bg {
+ width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; filter: contrast(1.1) drop-shadow(2px 4px 6px rgba(0,0,0,0.3)); 
+}
+
+.diario-baelfast .wax-seal .seal-letter {
+ position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Uncial Antiqua', cursive; font-size: 1.8rem; color: rgba(255,230,195,0.95); text-shadow: 0 2px 4px rgba(60,10,0,0.8); padding-top: 4px; padding-left: 2px; 
+}
+
+@media (max-width: 768px) {
+.diario-baelfast .page {
+ padding: 50px 30px; 
+}
+.diario-baelfast .diary-title {
+ font-size: 3.2rem; 
+}
+.diario-baelfast .washi, .diario-baelfast .sticker, .diario-baelfast .bjpaper {
+ display: none; 
+}
+}

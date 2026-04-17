@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Cinzel:wght@500;700&display=swap');
+
+.mansao-baelfast {
+
+      --bg-dark: #161412;
+      --bg-card: #1f1d19;
+      --text-main: #e0d8c8;
+      --text-muted: #b8ac97;
+      --crimson: #8f2323;
+      --gold: #b39050;
+      --border-dark: #3a3328;
+    
+}
+
+.mansao-baelfast * {
+ box-sizing: border-box; 
+}
+
+.mansao-baelfast {
+
+      background: #000;
+      display: flex; justify-content: center;
+      padding: 40px 15px; margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+    
+}
+
+.mansao-baelfast .dossier {
+
+      width: 100%; max-width: 960px;
+      background-color: var(--bg-dark);
+      background-image: radial-gradient(circle at center, rgba(30,25,20,0.8) 0%, rgba(10,8,5,1) 100%);
+      padding: 60px 80px;
+      border: 1px solid var(--border-dark);
+      border-top: 10px solid var(--crimson);
+      border-radius: 4px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8), inset 0 0 60px rgba(0,0,0,0.6);
+      color: var(--text-main);
+      position: relative;
+    
+}
+
+.mansao-baelfast .dossier-header {
+
+      text-align: center; margin-bottom: 50px;
+      padding-bottom: 30px; border-bottom: 1px solid var(--border-dark);
+    
+}
+
+.mansao-baelfast .estate-logo {
+
+      width: 85px; margin: 0 auto 20px; display: block;
+      filter: sepia(0.5) hue-rotate(-15deg) saturate(1.8) contrast(1.2) brightness(0.85);
+    
+}
+
+.mansao-baelfast .dossier-title {
+
+      font-family: 'Cinzel', serif; font-size: 2.8rem;
+      color: var(--gold); margin: 0 0 10px; letter-spacing: 0.1em;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    
+}
+
+.mansao-baelfast .dossier-subtitle {
+
+      font-size: 1.1rem; color: var(--text-muted); font-style: italic; letter-spacing: 0.15em; text-transform: uppercase; margin: 0;
+    
+}
+
+.mansao-baelfast .intro-text {
+
+      font-size: 1.2rem; line-height: 1.8; text-align: justify; margin-bottom: 40px; color: var(--text-main);
+    
+}
+
+.mansao-baelfast .intro-text strong {
+
+      color: var(--gold); font-weight: 600;
+    
+}
+
+.mansao-baelfast .intro-text em {
+
+      color: var(--text-muted);
+    
+}
+
+.mansao-baelfast .section-header {
+
+      font-family: 'Cinzel', serif; font-size: 1.8rem;
+      color: var(--gold); text-align: center; margin: 50px 0 30px;
+      display: flex; align-items: center; justify-content: center; gap: 20px;
+    
+}
+
+.mansao-baelfast .section-header::before, .mansao-baelfast .section-header::after {
+
+      content: ''; height: 1px; flex-grow: 1; background: var(--border-dark);
+    
+}
+
+.mansao-baelfast .staff-grid {
+
+      display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+    
+}
+
+.mansao-baelfast .staff-card {
+
+      background: var(--bg-card);
+      border: 1px solid var(--border-dark);
+      border-left: 4px solid var(--crimson);
+      padding: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+      border-radius: 2px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    
+}
+
+.mansao-baelfast .staff-card:hover {
+
+      transform: translateY(-3px); border-left-color: var(--gold);
+    
+}
+
+.mansao-baelfast .role-title {
+
+      font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold); margin: 0 0 15px; border-bottom: 1px dashed var(--border-dark); padding-bottom: 10px;
+    
+}
+
+.mansao-baelfast .role-desc {
+
+      font-size: 1.05rem; line-height: 1.6; color: var(--text-muted); font-style: italic; margin-bottom: 20px; text-align: justify;
+    
+}
+
+.mansao-baelfast .person {
+
+      margin-bottom: 15px; font-size: 1.1rem; line-height: 1.6; text-align: justify;
+    
+}
+
+.mansao-baelfast .person:last-child {
+ margin-bottom: 0; 
+}
+
+.mansao-baelfast .person-name {
+
+      display: block; font-weight: bold; color: var(--text-main); font-size: 1.15rem; margin-bottom: 3px;
+    
+}
+
+.mansao-baelfast .person-name::before {
+
+      content: '⟡ '; color: var(--crimson); font-size: 0.9em;
+    
+}
+
+.mansao-baelfast .security-notice {
+
+      margin-top: 60px; padding: 25px; border: 1px dashed var(--crimson);
+      background: rgba(143, 35, 35, 0.05); text-align: center; font-size: 1.1rem; color: var(--text-muted); font-style: italic;
+    
+}
+
+@media (max-width: 850px) {
+.mansao-baelfast .staff-grid {
+ grid-template-columns: 1fr; 
+}
+.mansao-baelfast .dossier {
+ padding: 40px 30px; 
+}
+.mansao-baelfast .dossier-title {
+ font-size: 2.2rem; 
+}
+}
