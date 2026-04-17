@@ -49,16 +49,17 @@
     
 }
 
-.amigos-apopka .title {
+.amigos-apopka h1.title {
 
-      font-family: 'Permanent Marker', cursive;
-      font-size: 2.8rem;
-      color: var(--ink);
-      text-align: center;
-      margin-bottom: 10px;
-      margin-top: 20px;
-      transform: rotate(-1.5deg);
-      line-height: 1.1;
+      font-family: 'Permanent Marker', cursive !important;
+      font-size: 2.8rem !important;
+      color: var(--ink) !important;
+      text-align: center !important;
+      margin-bottom: 10px !important;
+      margin-top: 20px !important;
+      transform: rotate(-1.5deg) !important;
+      line-height: 1.1 !important;
+      border-bottom: none !important;
     
 }
 
@@ -137,9 +138,10 @@
 
 .amigos-apopka .text-col h2 {
 
-      font-family: 'Permanent Marker', cursive;
-      font-size: 2rem; margin: 0; color: var(--red-ink); 
-      line-height: 36px;
+      font-family: 'Permanent Marker', cursive !important;
+      font-size: 2rem !important; margin: 0 !important; color: var(--red-ink) !important; 
+      line-height: 36px !important;
+      border-bottom: none !important;
     
 }
 

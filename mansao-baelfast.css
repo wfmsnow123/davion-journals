@@ -54,11 +54,15 @@
     
 }
 
-.mansao-baelfast .dossier-title {
+.mansao-baelfast h1.dossier-title {
 
-      font-family: 'Cinzel', serif; font-size: 2.8rem;
-      color: var(--gold); margin: 0 0 10px; letter-spacing: 0.1em;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      font-family: 'Cinzel', serif !important; 
+      font-size: 2.8rem !important;
+      color: var(--gold) !important; 
+      margin: 0 0 10px !important; 
+      letter-spacing: 0.1em !important;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5) !important;
+      border-bottom: none !important;
     
 }
 
@@ -124,9 +128,14 @@
     
 }
 
-.mansao-baelfast .role-title {
+.mansao-baelfast h3.role-title {
 
-      font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold); margin: 0 0 15px; border-bottom: 1px dashed var(--border-dark); padding-bottom: 10px;
+      font-family: 'Cinzel', serif !important; 
+      font-size: 1.3rem !important; 
+      color: var(--gold) !important; 
+      margin: 0 0 15px !important; 
+      border-bottom: 1px dashed var(--border-dark) !important; 
+      padding-bottom: 10px !important;
     
 }
 
